@@ -40,11 +40,11 @@ class VideoModel {
       );
 
   factory VideoModel.fromJson(Map<String, dynamic> json) => VideoModel(
-    links: Links.fromJson(json["links"]),
-    total: json["total"],
-    page: json["page"],
-    pageSize: json["page_size"],
-    results: List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
+    links: Links.fromJson(json["links"]??{}),
+    total: json["total"]?? 0,
+    page: json["page"]?? 0,
+    pageSize: json["page_size"]?? 0,
+    results: List<Result>.from(json["results"].map((x) => Result.fromJson(x))?? []),
   );
 
   Map<String, dynamic> toJson() => {
@@ -75,7 +75,7 @@ class Links {
       );
 
   factory Links.fromJson(Map<String, dynamic> json) => Links(
-    next: json["next"],
+    next: json["next"]?? 0,
     previous: json["previous"],
   );
 
@@ -180,27 +180,27 @@ class Result {
       );
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
-    thumbnail: json["thumbnail"],
-    id: json["id"],
-    title: json["title"],
+    thumbnail: json["thumbnail"]?? '',
+    id: json["id"]?? 0,
+    title: json["title"]?? '',
     dateAndTime: DateTime.parse(json["date_and_time"]),
-    slug: json["slug"],
+    slug: json["slug"]?? '',
     createdAt: DateTime.parse(json["created_at"]),
-    manifest: json["manifest"],
-    liveStatus: json["live_status"],
-    liveManifest: json["live_manifest"],
-    isLive: json["is_live"],
-    channelImage: json["channel_image"],
-    channelName: json["channel_name"],
-    channelUsername:json["channel_username"],
-    isVerified: json["is_verified"],
-    channelSlug: json["channel_slug"],
-    channelSubscriber: json["channel_subscriber"],
-    channelId: json["channel_id"],
-    type: json["type"],
-    viewers: json["viewers"],
-    duration: json["duration"],
-    objectType: json["object_type"],
+    manifest: json["manifest"]?? '',
+    liveStatus: json["live_status"]?? 0,
+    liveManifest: json["live_manifest"]?? '',
+    isLive: json["is_live"]?? false,
+    channelImage: json["channel_image"]?? '',
+    channelName: json["channel_name"]?? {},
+    channelUsername:json["channel_username"]?? {},
+    isVerified: json["is_verified"]?? false,
+    channelSlug: json["channel_slug"] ?? {},
+    channelSubscriber: json["channel_subscriber"]?? '',
+    channelId: json["channel_id"]?? 0,
+    type: json["type"]?? {},
+    viewers: json["viewers"]?? '',
+    duration: json["duration"]?? '',
+    objectType: json["object_type"]?? {},
   );
 
   Map<String, dynamic> toJson() => {
