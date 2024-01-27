@@ -97,16 +97,16 @@ class Result {
   final String liveManifest;
   final bool isLive;
   final String channelImage;
-  final ChannelName channelName;
-  final ChannelUsername channelUsername;
+  final String channelName;
+  final String channelUsername;
   final bool isVerified;
-  final ChannelSlug channelSlug;
+  final String channelSlug;
   final String channelSubscriber;
   final int channelId;
-  final Type type;
+ // final String type;
   final String viewers;
   final String duration;
-  final ObjectType objectType;
+  final String objectType;
 
   Result({
     required this.thumbnail,
@@ -126,7 +126,7 @@ class Result {
     required this.channelSlug,
     required this.channelSubscriber,
     required this.channelId,
-    required this.type,
+   // required this.type,
     required this.viewers,
     required this.duration,
     required this.objectType,
@@ -144,16 +144,16 @@ class Result {
     String? liveManifest,
     bool? isLive,
     String? channelImage,
-    ChannelName? channelName,
-    ChannelUsername? channelUsername,
+    String? channelName,
+    String? channelUsername,
     bool? isVerified,
-    ChannelSlug? channelSlug,
+    String? channelSlug,
     String? channelSubscriber,
     int? channelId,
-    Type? type,
+   // String? type,
     String? viewers,
     String? duration,
-    ObjectType? objectType,
+    String? objectType,
   }) =>
       Result(
         thumbnail: thumbnail ?? this.thumbnail,
@@ -173,7 +173,7 @@ class Result {
         channelSlug: channelSlug ?? this.channelSlug,
         channelSubscriber: channelSubscriber ?? this.channelSubscriber,
         channelId: channelId ?? this.channelId,
-        type: type ?? this.type,
+      //  type: type ?? this.type,
         viewers: viewers ?? this.viewers,
         duration: duration ?? this.duration,
         objectType: objectType ?? this.objectType,
@@ -191,13 +191,13 @@ class Result {
     liveManifest: json["live_manifest"]?? '',
     isLive: json["is_live"]?? false,
     channelImage: json["channel_image"]?? '',
-    channelName: json["channel_name"]?? {},
-    channelUsername:json["channel_username"]?? {},
+    channelName: json["channel_name"]?? '',
+    channelUsername:json["channel_username"],
     isVerified: json["is_verified"]?? false,
     channelSlug: json["channel_slug"] ?? {},
     channelSubscriber: json["channel_subscriber"]?? '',
     channelId: json["channel_id"]?? 0,
-    type: json["type"]?? {},
+   // type: json["type"]?? {},
     viewers: json["viewers"]?? '',
     duration: json["duration"]?? '',
     objectType: json["object_type"]?? {},
@@ -221,7 +221,7 @@ class Result {
     "channel_slug": channelSlug,
     "channel_subscriber": channelSubscriber,
     "channel_id": channelId,
-    "type":type,
+   // "type":type,
     "viewers": viewers,
     "duration": duration,
     "object_type": objectType,

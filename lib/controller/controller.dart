@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../model/videomodel.dart';
+import 'package:videoplayer_task/model/test.dart';
 import '../service/video_service.dart';
 
 class VideoController extends GetxController {
@@ -12,9 +12,8 @@ class VideoController extends GetxController {
 
   void fetchVideos() async {
     try {
-      print("y");
-      VideoModel videoModel = await ApiService.fetchVideos();
-      print("y");
+      Temperatures videoModel = await ApiService.fetchVideos();
+      print(videoModel.pageSize);
 
       videoList.value = videoModel.results;
     } catch (error) {
